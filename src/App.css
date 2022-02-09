@@ -1,0 +1,347 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}  
+
+/* .sidebar-wrapper .iconmenu .nav-pills .nav-link:hover{
+    background-color: #d5e0f1!important;
+    color: #3476fe!important;
+} */
+
+/* .sidebar-wrapper .iconmenu .nav-pills .nav-link.active, .iconmenu .nav-pills .show>.nav-link {
+    color: #3476fe;
+    background-color: #dbe7fb;
+} */
+
+/* .sidebar-wrapper .iconmenu .nav-pills .nav-link{
+    background-color: red;
+} */
+/* .active, .sidebar-wrapper .iconmenu .nav-pills :hover{
+  background-color: red!important;
+  color: white!important;
+} */
+
+/* .active, button:hover{
+  background-color: red;
+} */
+
+/* .sidebar-wrapper .iconmenu .nav-pills .nav-link.active, .iconmenu .nav-pills .show>.nav-link {
+  background-color: red;
+} */
+
+.sidebar-wrapper .iconmenu .nav-pills .nav-link{
+  text-transform: capitalize;
+}
+
+/* .sidebar-wrapper .textmenu .list-group .list-group-item.active, :hover{
+  color: red;
+} */
+
+a.list-group-item:hover{
+  background-color: #dbe7fb!important;
+  color:black!important;
+  text-transform: capitalize;
+}
+
+.list-group-item.active {
+  z-index: 2;
+  color: #3476fe;
+  background-color: #dbe7fb;
+  border-color: #0d6efd;
+}
+
+a.list-group-item{
+  text-transform: capitalize;
+}
+
+
+
+.page-content {
+  margin-left: 330px;
+  margin-top: 60px;
+  padding: 2vh;
+  transition: all .2s;
+}
+
+.fontss{
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* .email-navigation a.list-group-item.active {
+
+  font-weight: 400;
+
+  background-color: #dbe7fb!important;
+  color: #3476fe!important;
+} */
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #212529;
+  text-decoration: none;
+  background-color: #fff;
+  /* border: 1px soild black; */
+}
+
+/* p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+  overflow: hidden;
+  max-height: 60px;
+} */
+p.List-para {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  color: #535c68;
+}
+
+/* .email-wrapper {
+  width: auto;
+  height: 540px;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 0.1rem 0.7rem rgb(0 0 0 / 10%);
+} */
+
+.nothing {
+  height: 400px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nothing-content{
+  text-align: center;
+}
+
+button.Page-btn {
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  margin-left: 130px;
+  text-align: center;
+  border-radius: 15px;
+  border: none;
+  border: 1px solid blue;
+  background-color: white;
+}
+
+/* .email-sidebar-content {
+  overflow-y: auto;
+  height: 100%;
+  width: 105%;
+} */
+
+/* button {
+  margin-left: 77px;
+  margin-top: 50px;
+  padding: 40px;
+} */
+
+
+
+@media screen and (max-width: 600px){
+  a.list-group-item.fontss {
+      margin-left: 53px;
+  }
+  .mobile-toggle-icon, .search-toggle-icon, .projects, .notifications, .messages {
+      position: relative;
+      left: 7px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;  
+      background-color: #fff;
+      color: #5e636b;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 1px solid rgb(255 255 255 / 0%);
+      box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);   
+  }
+}     
+
+@media screen and (max-width: 1199px){
+.sidebar-wrapper .iconmenu .nav-toggle-box {
+  position: fixed;
+  left: -93px;
+}
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* .email-sidebar-content {
+  height: 70vh;
+  overflow-y: scroll;
+} */
+
+.email-wrapper {
+  width: auto;
+  height: 89vh;
+  
+  border-radius: 0.25rem;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 0.1rem 0.7rem rgb(0 0 0 / 10%);
+}
+
+
+.bi-search::before {
+  content: "\f52a";
+  display: none;
+}
+
+.email-navigation {
+  position: relative;
+  padding: 0;
+  height: 88vh;
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.lists-btn{
+  display: flex;
+}
+button.copy-btn{
+  margin-left: 40px;
+  border:none;
+  color: grey;
+  background-color: white;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  height: 20px;
+  padding: 0 5px;
+  font-size: 10px;
+  border-radius: 4px;
+}
+button.copy-btn:hover{
+  margin-left: 50px;
+  /* border:none; */
+  color: #41C4B7;
+  border-color: #0e0e0e;
+  background-color: #E4F8F6;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+button.save-btn{
+  margin-left: 40px;
+  border:none;
+  color: grey;
+  background-color: white;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  height: 20px;
+  padding: 0 5px;
+  font-size: 10px;
+  border-radius: 4px;
+}
+button.save-btn:hover{
+  margin-left: 50px;
+  /* border:none; */
+  background-color: rgb(207, 207, 241);
+  border: 1px solid blue;
+  color: blue;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+
+/* saved button */
+
+.sidebar-wrapper .iconmenu .nav-pills .nav-link:hover{
+  background-color: #D5E0F1!important;
+  color: black !important;
+}
+
+
+  .new-image {
+    vertical-align: middle;
+    position: relative;
+    left: 720px;
+    top: 181px;
+}  
+
+
+.logout_button {
+  border: none;
+  border-radius: 8px;
+  position: absolute;
+  right: 30px;
+  display: flex;
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+/* html,body {
+  overflow-y: hidden;
+  
+} */
+
+.no_scroll {
+  overflow-y: hidden;
+}

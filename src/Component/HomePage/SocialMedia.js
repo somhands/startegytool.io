@@ -31,6 +31,10 @@ import Wechat from "../../icons/Wechat.svg";
 import YellowPages from "../../icons/YellowPages.svg";
 import NavHome from "../Navbar/NavHome";
 import SearchbarHome from "../SearchBarHome/SearchBar";
+import Banner from "./Banner";
+import EmpowerTeam from "./EmpowerTeam";
+import WhoItWork from "./WhoItWork";
+import Footer from './Footer';
 // import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
 <link
@@ -40,7 +44,7 @@ import { useNavigate } from "react-router-dom";
 const SocialMedia = () => {
   const navigate = useNavigate();
   const All = () => {
-    navigate("/homepage");
+    navigate("/");
   };
   return (
     <div className="Home_background">
@@ -172,6 +176,10 @@ const SocialMedia = () => {
           </div>
         </div>
       </div>
+      <Banner/>
+    <EmpowerTeam/>
+    <WhoItWork/>
+    <Footer/>
     </div>
   );
 };

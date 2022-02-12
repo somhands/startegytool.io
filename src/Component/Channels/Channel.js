@@ -26,7 +26,7 @@ const Channel = () => {
       //   }
       // });
       setChannels(data.data);
-      console.log(data.data);
+      
     };
     fetchData();
   }, []);
@@ -34,7 +34,7 @@ const Channel = () => {
   const clickHandler = (path) => {
     navigate(`/${path}`, { state: path });
     setActive(path)
-    console.log(path)
+    
   };
 
   return (
@@ -57,7 +57,7 @@ const icon = e.attributes.icon;
               title={channel}
               
             >
-              <p
+              <Link
                 to={`/${channel}`}
                 className="nav-link"
                 data-bs-target={`#${channel}`}
@@ -69,7 +69,7 @@ const icon = e.attributes.icon;
 
                 {/* <img src={Facebook}></img> */}
                 {channel}
-              </p>
+              </Link>
             </li>
           );
         })}

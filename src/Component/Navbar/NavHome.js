@@ -4,6 +4,7 @@ import { Container,Navbar } from "react-bootstrap";
 import {AuthTokenContext} from "../../App";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import logo from "../../icons/logo.png"
 
 const NavHome = ({setAuthToken}) => {
   const authToken = useContext(AuthTokenContext)
@@ -39,7 +40,7 @@ const NavHome = ({setAuthToken}) => {
     <div>
       <Navbar expand="lg" variant="light" bg="light" className="navigation_bar">
 
-          <Navbar.Brand href="#" className="logo1"><h3><b>LOGO</b></h3></Navbar.Brand>
+      <img src={logo} style={{height:"50px" ,marginLeft:"18px"}}></img>
          {(authToken.length !== 0) ? <button onClick={home} className="dashBoard"> Go To Dashboard </button> : "" } 
          
           {(authToken.length !== 0) ? (

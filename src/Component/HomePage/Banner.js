@@ -15,7 +15,7 @@ const Banner = () => {
       {/* <div className="container"> */}
       <Row className="banner_padding">
         <Col className="banner" lg={5}>
-          <h4 className="homepage_font home_banner_title"><b>We help brands and startsup grow organically</b></h4>
+          <h4 className="homepage_font home_banner_title"><b>We help brands and startups grow organically</b></h4>
           <p className="homepage_font home_banner_para">
             To stand out on social, you need the right strategies and tools.
             With STRATEGY TOOL, you’ve got everything you need to build your

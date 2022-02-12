@@ -127,6 +127,7 @@
   color: black!important;
 }
 
+
 .arrow {
   border: solid black;
   border-width: 0 4px 4px 0;
@@ -154,9 +155,9 @@
 .buttonn {
   font-size: 1rem;
   border: 2px solid rgba(14, 13, 13, 0.788);
-  position: relative;
-  top: 0px;
-  left: 62px;
+  position: fixed;
+  top: 79px;
+  left: 590px;
   border-radius: 100px;
   width: 35px;
   height: 35px;
@@ -199,7 +200,7 @@
 } */
 
 .search_form {
-  margin-top: 0px;
+  margin-top: 6px;
 }
 
 .List-para {
@@ -230,7 +231,6 @@ color: #91ccc2!important;
   
   }
   
-
 
 
 button.logout {
@@ -323,4 +323,8 @@ button.logout {
   background-color: rgb(0 0 0);
   color: #91ccc2;
   width: 63px;
+}
+
+p {
+  margin-bottom: 0px;
 }

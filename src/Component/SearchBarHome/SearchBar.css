@@ -238,4 +238,10 @@ svg {
     margin-top: 70px;
     padding-top: 40px;
   }
+  input[type=search]:focus {
+    width: 130px;
+    background-color: #fff;
+    border-color: #66CC75;
+    box-shadow: 0 0 5px rgb(109 207 246 / 50%);
+}
 }

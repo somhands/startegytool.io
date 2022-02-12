@@ -84,7 +84,7 @@ const Register = () => {
                 </div>
                 <button type="submit" className="btn btn-dark btn-lg btn-block robotic-font">Register</button>
                 <p className="forgot-password text-right robotic-font">
-                    Already registered <a href="/login" className="robotic-font">log in?</a>
+                    Already registered <span href="/login" className="robotic-font register_page" onClick={direction}>log in?</span>
                 </p>
             </form>
             <br/>

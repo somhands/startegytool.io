@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-
+import Strategy from '../../icons/Strategy.png';
 
 
 const Medium = () => {
@@ -28,20 +28,25 @@ const Medium = () => {
         `https://strategytooladmin.handsintechnology.in/api/mediums?filters[channel][text]=${channel}&populate=icon`
       );
       setMediums(data.data);
-      console.log(data.data);
+      
     }; 
     fetchData();
-  }, [channel]);       
+  }, [channel]);  
+  
+  
+  
   const clickHandler = (path) => {
     navigate(`${channel}/${path}`, { state: path });   
     setActive(path)           
   };
 
+  
+
   return (
     <div>
       <div className="textmenu">
         <div className="brand-logo">
-          {/* <img src="assets/images/brand-logo-2.png" width="140" alt=""/> */}
+          <img src={Strategy} width="160" alt="STRATEGY TOOL"/>
         </div>
         <div className="tab-content">
           <div id="pills-dashboards">
@@ -51,14 +56,14 @@ const Medium = () => {
 
                    const icon = e.attributes.icon;
 
-                   console.log(e)
+                   
                 return (
                   <Link
                   onClick={() => clickHandler(medium)}
                     key={e.id}
                     id={medium}
                     to={`/${channel}/${medium}`}
-                    style={medium === active ? {backgroundColor: '#D5E0F1'} : null}
+                    style={medium === active ? {backgroundColor:'#D5E0F1'} : null }
                 
                     className="list-group-item fontss"
                     // data-bs-toggle="pill" data-bs-target="#pills-linkedin"
@@ -72,7 +77,7 @@ const Medium = () => {
             </div>
           </div>
 
-          <div className="tab-pane fade" id="pills-widgets">
+          {/* <div className="tab-pane fade" id="pills-widgets">
             <div className="list-group list-group-flush">
               <div className="list-group-item">
                 <div className="d-flex w-100 justify-content-between">
@@ -89,7 +94,8 @@ const Medium = () => {
                 Data Widgets
               </a>
             </div>
-          </div>
+          </div> */}
+
         </div>
       </div>
     </div>

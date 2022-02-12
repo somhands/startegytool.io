@@ -7,21 +7,26 @@ import ReactMarkdown from "react-markdown";
 import "./Lists.css";
 import envelop from "../../image/33.png";
 import { Buffer } from "buffer";
-import ReactHtmlParser , {processNodes , convertNodeToElement , htmlparser2} from "react-html-parser"
-
+import ReactHtmlParser, {
+  processNodes,
+  convertNodeToElement,
+  htmlparser2,
+} from "react-html-parser";
+import $ from "jquery";
+import { IoIosArrowDropleft } from "react-icons/io";
 
 const List = () => {
   const [lists, setLists] = useState([]);
   const [show, toggleShow] = useState({});
-  const [active , setActive] = useState();
-  const [saved, setSaved] = useState([])
-   const [hot ,setHot] = useState([]);
-  const [isSavedClass,setIsSavedClass] = useState(false)
-  
-  // console.log({saveToggle})
+  const [active, setActive] = useState();
+  const [saved, setSaved] = useState([]);
+  const [hot, setHot] = useState([]);
+  const [isSavedClass, setIsSavedClass] = useState(false);
 
-  const [searchTerm , setSearchTerm] = useState('')
+  // console.log({saveToggle})
   
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { state } = useLocation();
 
@@ -33,7 +38,7 @@ const List = () => {
 
   let medium = result.split("/")[2];
 
-  console.log({ channel });
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,23 +46,16 @@ const List = () => {
         `https://strategytooladmin.handsintechnology.in/api/lists?filters[channel][text]=${channel}&filters[medium][medium]=${medium}&populate=contentMedia&poulate=hot`
       );
       setLists(data.data);
-      
-      
     };
     fetchData();
-    console.log({ show });
+    
   }, [medium]);
-
-
-  
-
 
   const savedHandler = () => {
     // lists.filter((list) => list.id === )
-  
-    setLists(saved)
-     
-  }
+
+    setLists(saved);
+  };
 
   // const reverse = (x) => {
 
@@ -65,57 +63,56 @@ const List = () => {
   // }
 
   const elementSavedHandler = (e) => {
-    const output = saved.filter((saveElement) => saveElement.id === e.id)
-    if(output.length === 0){
-      setSaved(prev => [...prev, e])
+    const output = saved.filter((saveElement) => saveElement.id === e.id);
+    if (output.length === 0) {
+      setSaved((prev) => [...prev, e]);
       // setIsSavedClass(true)
       lists.reduce((acc, curr) => {
-        if(curr.id === e.id){
-          curr.saved = true
+        if (curr.id === e.id) {
+          curr.saved = true;
         }
-        acc = [...acc, curr] 
-        return acc
-      },[])
-    }else{
-      const result = saved.filter((saveElement) => saveElement.id !== e.id)
-      setSaved(result)
+        acc = [...acc, curr];
+        return acc;
+      }, []);
+    } else {
+      const result = saved.filter((saveElement) => saveElement.id !== e.id);
+      setSaved(result);
       // setIsSavedClass(false)
       lists.reduce((acc, curr) => {
-        if(curr.id === e.id){
-          curr.saved = false
+        if (curr.id === e.id) {
+          curr.saved = false;
         }
-        acc = [...acc, curr]
-        return acc
-      },[])
+        acc = [...acc, curr];
+        return acc;
+      }, []);
     }
-  }
+  };
 
   const newResults = () => {
     const output = lists.reduce((acc, curr, index) => {
-      acc[lists.length-index-1] = curr
-      return acc
-    },[])
-    setLists(output)
-  }
-  
+      acc[lists.length - index - 1] = curr;
+      return acc;
+    }, []);
+    setLists(output);
+  };
+
   // const searchHandler = (e) => {
 
   //   let x = document.querySelector('.button')
   //   if(e.target !== x){
   //  document.querySelector(".buttonn").style.display = "none"
-  //   }else if (e.target === x){ 
+  //   }else if (e.target === x){
   //     window.addEventListener("click" , () => {
   //       document.querySelector(".buttonn").style.display = "block"
   //     })
 
   //   }
   // }
-  
 
   // // let y = document.querySelector('.no_scroll')
 
   // {
-    
+
   // }
 
   // const hotList = () => {
@@ -127,15 +124,24 @@ const List = () => {
   // }
 
   // const newHot = async () => {
-    
-      
-  //       const {data} = await axios.get("http://localhost:1337/api/lists?filters[hot]=true")
+
+  //       const {data} = await axios.get("https://strategytooladmin.handsintechnology.in/api/lists?filters[hot]=true")
   //       setHot(data.data)
   //       console.log(data.data)
-      
+
   //   console.log(hot)
   // }
 
+  const Hidden = () => {
+    if ($(window).width() < 600) {
+      document.getElementById("hidden").style.display = "none";
+    } else {
+      document.getElementById("hidden").style.display = "block";
+    }
+  };
+  const Show = () => {
+    document.getElementById("hidden").style.display = "block";
+  };
 
   return (
     <div>
@@ -144,40 +150,58 @@ const List = () => {
       <main className="page-content">
         {/*start email wrapper*/}
         <div className="email-wrapper">
-          <div className="email-sidebar">
+          <div className="email-sidebar" id="hidden">
             <div className="email-sidebar-content">
               <div className="email-navigation">
                 <div className="list-group list-group-flush">
                   <div className="box_fixed">
-                  <div style={{ display: "flex", backgroundColor: "#F0F0F0" }}>
-                    <div>
-                      <form className="search_form">
-                        <input type="search" placeholder="Search" onChange={(e) => setSearchTerm(e.target.value)}/>
-                      </form>
-                    </div>
-                    {/* onClick={setSaved(lists.attributes)} */}
-                    <div onClick={savedHandler} className="buttonn">
-                      
-                      <div className="iconn">
-                        
-                        <i  className="fa fa-floppy-o"></i>
-                        
-    
+                    <div
+                      style={{ display: "flex", backgroundColor: "#F0F0F0" , height:"45px"}}
+                    >
+                      <div>
+                        <form className="search_form">
+                          <input
+                            type="search"
+                            placeholder="Search"
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                          />
+                        </form>
                       </div>
-                      <p  className="count">{saved.length}</p>
+                      {/* onClick={setSaved(lists.attributes)} */}
+                      <div onClick={savedHandler} className="buttonn">
+                        <div className="iconn">
+                          <i className="fa fa-floppy-o"></i>
+                        </div>
+                        <p className="count">{saved.length}</p>
+                      </div>
                     </div>
+
+                    <ButtonGroup aria-label="Basic example">
+                      <Button
+                        className="buttonGroup"
+                        style={{
+                          backgroundColor: "White",
+                          color: "black",
+                          border: "1px solid black",
+                        }}
+                      >
+                        Hot
+                      </Button>
+                      <Button
+                        className="buttonGroup"
+                        style={{
+                          backgroundColor: "White",
+                          color: "black",
+                          border: "1px solid black",
+                        }}
+                        onClick={newResults}
+                      >
+                        New
+                      </Button>
+                    </ButtonGroup>
                   </div>
 
-                  <ButtonGroup aria-label="Basic example">
-                  <Button className="buttonGroup" style={{backgroundColor:"White", color:"black" , border:'1px solid black'}}  >Hot</Button>
-                  <Button className="buttonGroup" style={{backgroundColor:"White", color:'black' , border:'1px solid black'}} onClick={newResults}>New</Button>
-                  </ButtonGroup>
-                  </div>
-
-                  
-                 
-                
-                  {lists.filter((val) => {
+                  {/* {hot.filter((val) => {
                     if (searchTerm === ""){
                       return val
                     } else if (val.attributes.list.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -185,7 +209,7 @@ const List = () => {
                     }
                   }).map((e) => {
                     const list = ReactHtmlParser(e.attributes.list);
-                    //const listReverse = e.attributes.list.reverse()
+                    
                     const content = e.attributes.content;
 
                     return (
@@ -201,7 +225,7 @@ const List = () => {
                           }}
                           style={list === active ? {backgroundColor: '#D5E0F1'} : null}
                         >
-                          <div key={e.id} className="box">
+                          <div key={e.id} className="box" style={{cursor:"pointer"}}>
                             <p className="list-para1">{list}</p>
 
                             <p className="List-para">{content}</p>
@@ -211,13 +235,71 @@ const List = () => {
                                 <i class="fa fa-floppy-o"></i>
                               </div>
                             </div>
-                            {/* <p className="save-btn">Save Button</p> */}
-                            {/* </p> */}
+                           
                           </div>
                         </li>
                       </div>
                     );
-                  })}
+                  })} */}
+
+                  {lists
+                    .filter((val) => {
+                      if (searchTerm === "") {
+                        return val;
+                      } else if (
+                        val.attributes.list
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase())
+                      ) {
+                        return val;
+                      }
+                    })
+                    .map((e) => {
+                      const list = ReactHtmlParser(e.attributes.list);
+                      //const listReverse = e.attributes.list.reverse()
+                      const content = e.attributes.content;
+
+                      return (
+                        <div
+                          className="list-height"
+                          style={{ cursor: "pointer" }}
+                        >
+                          <li
+                            href="javascript:;"
+                            className="list-group-item  align-items-center fontss list-hover"
+                            data-bs-toggle="pill"
+                            style={
+                              e.id === active
+                                ? { backgroundColor: "#D5E0F1" }
+                                : null
+                            }
+                            onClick={() => {
+                              toggleShow({ id: e.id });
+                              setActive(e.id);
+                            }}
+                          >
+                            <div  key={e.id} className="box">
+                              <div onClick={Hidden}>
+                                <p className="list-para1">{list}</p>
+
+                                <p className="List-para">{content}</p>
+                              </div>
+
+                              <div
+                                onClick={() => elementSavedHandler(e)}
+                                className={e.saved ? "buttonActive" : "button"}
+                              >
+                                <div class="iconn">
+                                  <i class="fa fa-floppy-o"></i>
+                                </div>
+                              </div>
+                              {/* <p className="save-btn">Save Button</p> */}
+                              {/* </p> */}
+                            </div>
+                          </li>
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             </div>
@@ -225,113 +307,113 @@ const List = () => {
 
           <div className="email-content">
             {/* <div> */}
-              <div className="email-read-box p-3">
+            <button onClick={Show} className="show_lsit">
+              <IoIosArrowDropleft />
+            </button>
+            <div className="email-read-box p-3">
+              {lists.map((e) => {
+                const list = ReactHtmlParser(e.attributes.list);
 
-                {lists.map((e) => {
-                  const list = ReactHtmlParser(e.attributes.list);
-                 
-                  const content = ReactHtmlParser(e.attributes.content);
-                  const content1 = ReactHtmlParser(e.attributes.content1);
-                  const img = e.attributes.contentMedia.data;
+                const content = ReactHtmlParser(e.attributes.content);
+                const content1 = ReactHtmlParser(e.attributes.content1);
+                const img = e.attributes.contentMedia.data;
 
-                  console.log("img_____",img)
+                
 
-                  // const photo = e.contentMedia.url;
+                // const photo = e.contentMedia.url;
 
-                  // console.log({ photo });
-                  return (
-                    <div>
-                      {e.id === show.id && (
-                        <div>
-                          <h4 key={e.id} className="fontss">{list}</h4>
-                          <hr />
-                          <div className="email-read-content">
+                // console.log({ photo });
+                return (
+                  <div>
+                    {e.id === show.id && (
+                      <div>
+                        <h4 key={e.id} className="fontss">
+                          {list}
+                        </h4>
+                        <hr />
+                        <div className="email-read-content">
                           {/* <ReactMarkdown escapeHtml={false} >
                             {content}
                             </ReactMarkdown> */}
-                            {content}
-                            
-                            { img?.map((i) => {
-                              if(i?.attributes?.ext === ".gif" ) return (
-                                
-                                <img
-                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
-                                  
-                                  style={{
-                                    height: "25vh",
-                                    width: "20vw",
-                                    marginRight: "5px",
-                                  }}
-                                ></img>
-                              );
-                             })}
-                             { img?.map((i) => {
-                              if(i?.attributes?.ext === ".png" ) return (
-                                
-                                <img
-                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
-                                  
-                                  style={{
-                                    height: "25vh",
-                                    width: "20vw",
-                                    marginRight: "5px",
-                                  }}
-                                ></img>
-                              );
-                             })}
-                             { img?.map((i) => {
-                              if(i?.attributes?.ext === ".jpeg" ) return (
-                                
-                                <img
-                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
-                                  
-                                  style={{
-                                    height: "25vh",
-                                    width: "20vw",
-                                    marginRight: "5px",
-                                  }}
-                                ></img>
-                              );
-                             })}
-                             { img?.map((i) => {
-                              if(i?.attributes?.ext === ".svg" ) return (
-                                
-                                <img
-                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
-                                  
-                                  style={{
-                                    height: "25vh",
-                                    width: "20vw",
-                                    marginRight: "5px",
-                                  }}
-                                ></img>
-                              );
-                             })}
-                             {img?.map((i) => {
-                               if(i?.attributes?.ext ===".mp4" )
-                            return <video
-                              src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
-                              autoPlay
-                              controls
-                              style={{  
-                                height: "45vh",
-                                width: "40vw",
-                                marginRight: "5px",
-                                textAlign:"center"
-                              }}
-                            ></video>
-                            
-                            })}
-                            <p className="fontss">{content1}</p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+                          {content}
 
-             
+                          {img?.map((i) => {
+                            if (i?.attributes?.ext === ".gif")
+                              return (
+                                <img
+                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
+                                  style={{
+                                    height: "25vh",
+                                    width: "20vw",
+                                    marginRight: "5px",
+                                  }}
+                                ></img>
+                              );
+                          })}
+                          {img?.map((i) => {
+                            if (i?.attributes?.ext === ".png")
+                              return (
+                                <img
+                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
+                                  style={{
+                                    height: "25vh",
+                                    width: "20vw",
+                                    marginRight: "5px",
+                                  }}
+                                ></img>
+                              );
+                          })}
+                          {img?.map((i) => {
+                            if (i?.attributes?.ext === ".jpeg")
+                              return (
+                                <img
+                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
+                                  style={{
+                                    height: "25vh",
+                                    width: "20vw",
+                                    marginRight: "5px",
+                                  }}
+                                ></img>
+                              );
+                          })}
+                          {img?.map((i) => {
+                            if (i?.attributes?.ext === ".svg")
+                              return (
+                                <img
+                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
+                                  style={{
+                                    height: "25vh",
+                                    width: "20vw",
+                                    marginRight: "5px",
+                                  }}
+                                ></img>
+                              );
+                          })}
+                          {img?.map((i) => {
+                            if (i?.attributes?.ext === ".mp4")
+                              return (
+                                <video
+                                  src={`https://strategytooladmin.handsintechnology.in/${i["attributes"]["url"]}`}
+                                  autoPlay
+                                  controls
+                                  style={{
+                                    height: "45vh",
+                                    width: "40vw",
+                                    marginRight: "5px",
+                                    textAlign: "center",
+                                  }}
+                                ></video>
+                              );
+                          })}
+                          <p className="fontss">{content1}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
             {/* </div> */}
           </div>
 
@@ -347,4 +429,3 @@ const List = () => {
 };
 
 export default List;
-

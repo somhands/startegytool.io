@@ -35,6 +35,7 @@ const Topbar = ({setAuthToken}) => {
           <button onClick={logOut} className="logout"><span>Logout</span><span className="logout_arrow"><BsBoxArrowRight/></span></button>
           
         </nav>
+        
       </header>
     </div>
     

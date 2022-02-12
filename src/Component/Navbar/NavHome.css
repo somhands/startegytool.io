@@ -10,9 +10,9 @@ nav.navigation_bar.navbar.navbar-expand-lg.navbar-light.bg-light {
 
   .login-btn1 {
     border: none;
-    background-color: #2162e0;
-    border: 1px solid #2162e0;
-    color: white;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
     border-radius: 20px;
     padding-bottom: 5px;
     padding-left: 15px;
@@ -24,9 +24,9 @@ nav.navigation_bar.navbar.navbar-expand-lg.navbar-light.bg-light {
 
   .login-btn1:hover {
     border: none;
-    background-color: white;
-    border: 1px solid #2162e0;
-    color: #2162e0 ;
+    background-color: black;
+    border: 1px solid black;
+    color:  #91ccc2;
     border-radius: 20px;
     padding-bottom: 5px;
     padding-left: 15px;
@@ -42,21 +42,21 @@ margin-left: 40px;
 
   .dashBoard:hover {
     font-size: 13px;
-    color: #2162e0;
-    background-color: white;
+    color: #91ccc2;
+    background-color: black;
     margin-left: 15px;
-    border: 1px solid #2162e0;
+    border: 1px solid black;
     padding: 6px 15px;
     border-radius: 5px;
 }
 .dashBoard {
   font-size: 13px;
-  background-color: #2162e0;
+  background-color: white;
   margin-left: 15px;
-  border: 1px solid #2162e0;
+  border: 1px solid black;
   padding: 6px 15px;
   border-radius: 5px;
-  color: white;
+  color: black;
 }
 .navbar-brand {
   padding-top: 14px;

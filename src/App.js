@@ -1,7 +1,7 @@
 import React, {useState, useEffect , useContext} from "react"
 import "./App.css";
 import NewComponent from "./NewComponent";
-import { BrowserRouter , Routes, Route  } from "react-router-dom";
+import { BrowserRouter , Routes, Route , HashRouter } from "react-router-dom";
 import Login from "./Component/SignIn/Login";
 import Register from "./Component/SignIn/Register";
 import HomePage from "./Component/HomePage/HomePage";
@@ -28,15 +28,18 @@ function App() {
   return (
     <>
     <AuthTokenContext.Provider value={authToken}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
         <Route path="/socialmedia" element={<SocialMedia/>} />
           <Route path="/login" element={<Login setAuthToken={setAuthToken}/>} />
           <Route path="/register" element={<Register/>} />
+          {(authToken)?
+           <Route path="*" element={<NewComponent setAuthToken={setAuthToken} />} />
+          :
           <Route path="/" element={<HomePage setAuthToken={setAuthToken} />} />
-          <Route path="*" element={<NewComponent setAuthToken={setAuthToken} />} />
+          }
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       </AuthTokenContext.Provider>
 
       {/* <>

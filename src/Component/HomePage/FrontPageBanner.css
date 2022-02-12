@@ -6,6 +6,7 @@
   font-size: 55px;
   padding-top: 40px;
   padding-bottom: 40px;
+
 }
 .home_banner_para {
   font-size: 16px;
@@ -14,6 +15,7 @@
   font-size: 45px;
 }
 .banner_padding {
+  margin-top: 40px;
   padding-bottom: 30px;
   background-color: white;
 }
@@ -401,7 +403,6 @@ p.homepage_font.who_is_for_para.container {
     color: grey;
     font-size: 33px;
     margin-right: 20px;
-  margin-left: 20px;
 }
 .icon_img {
   height: 110px;
@@ -415,7 +416,7 @@ p.homepage_font.who_is_for_para.container {
 .who_is_for_title {
   font-size: 30px;
   color: #13A283;
-  padding-left: 0px;
+  padding-left: 20px;
     padding-top: 0px;
 }
 .own_words_para {
@@ -442,5 +443,10 @@ p.homepage_font.who_is_for_para.container {
 .who_is_for_content {
   padding-top: 0px;
   padding-bottom: 40px;
+}
+.footer {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 }
